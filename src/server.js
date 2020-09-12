@@ -14,6 +14,7 @@ const server = express();
 // permitir acesso externo
 server.use(cors());
 server.use(express.json());
+server.use(express.urlencoded({ extended: true }))
 
 // conectando com o banco de dados
 mongoose.connect(`mongodb+srv://teste-projeto:${dbConfig.PASS}@cluster0.sdu5v.mongodb.net/${dbConfig.NAME}?retryWrites=true&w=majority`, {
