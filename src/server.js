@@ -16,7 +16,7 @@ server.use(cors());
 server.use(express.json());
 
 // conectando com o banco de dados
-mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+mongoose.connect(`mongodb+srv://teste-projeto:${dbConfig.PASS}@cluster0.sdu5v.mongodb.net/${dbConfig.NAME}?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
