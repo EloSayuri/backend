@@ -1,9 +1,12 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
  
 import routes from './routes.js';
 import dbConfig from './config/dbConfig.js';
+
+dotenv.config();
 
 //instanciando o expresse
 const server = express();
@@ -27,7 +30,7 @@ mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
 //Rotas 
 server.use(routes);
 
-const port = 3333;
+const port = process.env.PORT ||3000;
 server.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`)
 });
