@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import * as http from 'http';
 import cors from 'cors';
 import mongoose from 'mongoose';
  
@@ -31,9 +30,8 @@ mongoose.connect(`mongodb+srv://teste-projeto:${dbConfig.PASS}@cluster0.sdu5v.mo
 
 //Rotas 
 server.use(routes);
-const app = http.createServer(server);
 
 const port = process.env.PORT ||3000;
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`)
 });
